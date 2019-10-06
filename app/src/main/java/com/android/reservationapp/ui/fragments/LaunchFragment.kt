@@ -8,27 +8,22 @@ import androidx.fragment.app.Fragment
 import androidx.navigation.NavController
 import androidx.navigation.Navigation
 import com.android.reservationapp.R
-import com.android.reservationapp.databinding.LoginFragmentBinding
-import com.google.firebase.auth.FirebaseAuth
+import com.android.reservationapp.databinding.CheckFragmentBinding
+import kotlinx.coroutines.*
 
-class LoginFragment : Fragment(){
-    lateinit var mauth: FirebaseAuth
-    lateinit var binding: LoginFragmentBinding
+class LaunchFragment : Fragment() {
+lateinit var binding:CheckFragmentBinding
     lateinit var nav:NavController
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        binding = LoginFragmentBinding.inflate(inflater, container, false)
-        mauth = FirebaseAuth.getInstance()
-        binding.loginButton.setOnClickListener {
-            mauth.signInWithEmailAndPassword(
-                binding.email.text.toString(),
-                binding.password.text.toString()
-            ).addOnCompleteListener(activity!!) {
-                if (it.isSuccessful) nav.navigate(R.id.mainFragment)
-            }
+       binding = CheckFragmentBinding.inflate(inflater, container, false)
+
+        CoroutineScope(Dispatchers.Main).launch {
+            delay(2000)
+            nav.navigate(R.id.action_launchFragment_to_loginFragment)
         }
         return binding.root
     }

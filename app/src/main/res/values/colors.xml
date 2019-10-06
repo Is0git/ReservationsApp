@@ -8,4 +8,5 @@
     <color name="colorAccent">#D81B60</color>
     <color name="colorWhite">#ffffff</color>
     <color name="bgColor">#5D1049</color>
+    <color name="gradient">#E6E6E6</color>
 </resources>
