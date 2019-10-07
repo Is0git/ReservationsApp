@@ -48,6 +48,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="24dp"
             android:hint="Password"
+            app:passwordToggleEnabled="true"
             app:counterEnabled="true"
             app:endIconCheckable="true"
             app:endIconMode="password_toggle"
@@ -58,6 +59,7 @@
 
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/password"
+                android:inputType="textPassword"
                 android:layout_width="match_parent"
                 android:layout_height="50dp" />
 
@@ -86,7 +88,7 @@
             app:layout_constraintTop_toTopOf="@+id/loginButton" />
 
         <com.google.android.material.button.MaterialButton
-            android:id="@+id/ForgotButton"
+            android:id="@+id/forgotButton"
             style="@style/Widget.MaterialComponents.Button.TextButton"
             android:layout_width="105dp"
             android:textSize="12sp"

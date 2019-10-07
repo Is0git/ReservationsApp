@@ -9,17 +9,19 @@ import androidx.navigation.NavController
 import androidx.navigation.Navigation
 import com.android.reservationapp.R
 import com.android.reservationapp.databinding.MainFragmentBinding
+import com.google.firebase.auth.FirebaseAuth
 
-class MainFragment : Fragment() {
+class MainFragment : Fragment(){
     lateinit var binding:MainFragmentBinding
     lateinit var nav:NavController
+    lateinit var ss:List<String>
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
         binding = MainFragmentBinding.inflate(inflater, container, false)
-        nav.navigate(R.id.action_mainFragment_to_loginFragment)
+        binding.button.setOnClickListener { FirebaseAuth.getInstance().signOut() }
         return binding.root
     }
 
@@ -27,4 +29,7 @@ class MainFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         nav = Navigation.findNavController(view)
     }
+
+
 }
+

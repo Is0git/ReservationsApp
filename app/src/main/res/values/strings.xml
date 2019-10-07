@@ -3,4 +3,7 @@
     <string name="login">LOGIN</string>
     <string name="register">REGISTER</string>
     <string name="hi">Hi!</string>
+    <string name="email_address">Email address</string>
+    <string name="send">Send</string>
+    <string name="cancel">CANCEL</string>
 </resources>

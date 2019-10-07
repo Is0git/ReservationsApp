@@ -2,6 +2,7 @@
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
     <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/layout"
         android:orientation="vertical" android:layout_width="match_parent"
         android:background="@drawable/gradient"
         android:layout_height="match_parent">
@@ -49,6 +50,7 @@
 
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/password_text"
+                android:inputType="textPassword"
                 android:layout_width="match_parent"
                 android:layout_height="50dp" />
 
@@ -70,6 +72,7 @@
             app:startIconDrawable="@drawable/ic_lock_black_24dp">
 
             <com.google.android.material.textfield.TextInputEditText
+                android:inputType="textPassword"
                 android:id="@+id/password_repeat_text"
                 android:layout_width="match_parent"
                 android:layout_height="50dp" />
