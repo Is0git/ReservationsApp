@@ -11,9 +11,13 @@ import androidx.navigation.NavController
 import androidx.navigation.Navigation
 import com.android.reservationapp.R
 import com.android.reservationapp.databinding.LoginFragmentBinding
-import com.android.reservationapp.util.showSnackBar
+import com.android.reservationapp.util.*
+import com.android.reservationapp.util.FirebaseConsts.users
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseUser
+import com.google.firebase.firestore.CollectionReference
+import com.google.firebase.firestore.DocumentReference
+import com.google.firebase.firestore.FirebaseFirestore
 import kotlinx.android.synthetic.main.auth_fragment.*
 
 class LoginFragment : Fragment() {
@@ -21,12 +25,16 @@ class LoginFragment : Fragment() {
     lateinit var user: FirebaseUser
     lateinit var binding: LoginFragmentBinding
     lateinit var nav: NavController
-    private val dialog:DialogFragment by lazy { ForgotPassword() }
+    private val firebaseFirestore: FirebaseFirestore = FirebaseFirestore.getInstance()
+    private val collection: CollectionReference = firebaseFirestore.collection(users)
+    lateinit var documentReference: DocumentReference
+    private val dialog: DialogFragment by lazy { ForgotPassword() }
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
+
         binding = LoginFragmentBinding.inflate(inflater, container, false)
         mauth = FirebaseAuth.getInstance()
         binding.loginButton.setOnClickListener {
@@ -39,22 +47,29 @@ class LoginFragment : Fragment() {
                     when {
                         it.isSuccessful -> {
                             user = mauth.currentUser!!
-                            if (user.isEmailVerified) nav.navigate(R.id.action_loginFragment_to_mainFragment) else {
+                            if (user.isEmailVerified) {
+                                collection.whereEqualTo(FirebaseConsts.email, user.email).get()
+                                    .addOnSuccessListener {
+                                        documentReference = collection.document(it.documents[0].id)
+                                        documentReference.update(FirebaseConsts.seen_recently, System.currentTimeMillis())
+                                            .continueWith { nav.navigate(R.id.action_loginFragment_to_mainFragment) }
+                                    }
+
+                            } else {
                                 showSnackBar(
                                     binding.root,
                                     "You need to verify your email"
                                 )
-                                mauth.signOut()
                             }
                         }
-
                         else -> showSnackBar(binding.root, it.exception.toString())
                     }
                 } else showSnackBar(binding.root, "Ooops! Something went wrong!")
         }
 
         binding.forgotButton.setOnClickListener {
-        dialog.show(fragmentManager!!, "DIALOG")}
+            dialog.show(fragmentManager!!, "DIALOG")
+        }
         binding.registerButton.setOnClickListener { activity!!.view_pager.arrowScroll(FOCUS_RIGHT) }
         return binding.root
     }
@@ -63,4 +78,5 @@ class LoginFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         nav = Navigation.findNavController(activity!!, R.id.main_fragment_container)
     }
+
 }

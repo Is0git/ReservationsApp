@@ -35,5 +35,11 @@
     <fragment
         android:id="@+id/mainFragment"
         android:name="com.android.reservationapp.ui.fragments.MainFragment"
-        android:label="MainFragment" />
+        android:label="MainFragment" >
+        <action
+            android:id="@+id/action_mainFragment_to_loginFragment"
+            app:destination="@id/loginFragment"
+            app:popUpTo="@+id/mainFragment"
+            app:popUpToInclusive="true" />
+    </fragment>
 </navigation>
