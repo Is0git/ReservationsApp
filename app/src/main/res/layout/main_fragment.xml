@@ -12,21 +12,6 @@
         android:paddingBottom="15dp"
         android:orientation="vertical">
 
-<!--        <androidx.coordinatorlayout.widget.CoordinatorLayout-->
-<!--            android:layout_width="match_parent"-->
-<!--            android:layout_height="match_parent"-->
-<!--            android:layout_marginBottom="16dp"-->
-<!--            app:layout_constraintBottom_toBottomOf="parent"-->
-<!--            app:layout_constraintEnd_toEndOf="parent">-->
-
-<!--            <com.google.android.material.floatingactionbutton.FloatingActionButton-->
-<!--                android:id="@+id/floatingActionButton"-->
-<!--                android:layout_width="wrap_content"-->
-<!--                android:layout_height="wrap_content"-->
-<!--                android:layout_marginEnd="16dp"-->
-<!--                app:srcCompat="@drawable/ic_add_black_24dp" />-->
-<!--        </androidx.coordinatorlayout.widget.CoordinatorLayout>-->
-
         <com.google.android.material.card.MaterialCardView
             style="@style/Widget.MaterialComponents.CardView"
             android:theme="@style/MaterialStyle"
@@ -89,7 +74,7 @@
 
             <View
                 android:layout_width="match_parent"
-                android:layout_height="300dp"
+                android:layout_height="match_parent"
                 android:background="@drawable/gradient4" />
 
 
@@ -98,30 +83,321 @@
         <com.google.android.material.card.MaterialCardView
             android:id="@+id/calendar_cardView"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_height="wrap_content"
             android:layout_marginTop="15dp"
             app:cardElevation="1dp"
             android:layout_marginLeft="@dimen/mtrl_card_spacing"
             android:layout_marginRight="@dimen/mtrl_card_spacing"
-            android:minHeight="200dp"
             app:layout_constraintTop_toBottomOf="@id/recent_cardview">
-
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
             <View
                 android:layout_width="match_parent"
-                android:layout_height="336dp"
+                android:layout_height="match_parent"
                 android:background="@drawable/gradient2"/>
 
             <CalendarView
                 android:id="@+id/calendar"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_gravity="center" />
+                android:layout_centerHorizontal="true" />
+        <com.google.android.material.textview.MaterialTextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/calendar"
+            android:layout_marginStart="20dp"
+            android:fontFamily="@font/myriadpro"
+            android:textColor="@color/colorPrimary"
+            android:text="Hour: "
+            android:id="@+id/hour"/>
+            <SeekBar
+                android:id="@+id/seekBar"
+                style="@style/Widget.AppCompat.SeekBar.Discrete"
+                android:layout_width="match_parent"
+                android:layout_below="@id/hour"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="20dp"
+                android:layout_marginStart="8dp"
+                android:layout_marginEnd="8dp"
+                android:layout_centerHorizontal="true"
+                android:max="24"
+                android:progress="3" />
 
-            <com.google.android.material.button.MaterialButton
+            <View
+                android:id="@+id/divider"
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_below="@id/seekBar"
+                android:background="@android:drawable/divider_horizontal_bright"/>
+
+
+            <com.google.android.material.textview.MaterialTextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="add"/>
+                android:layout_below="@id/divider"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="20dp"
+                android:fontFamily="@font/myriadpro"
+                android:textColor="@color/colorPrimary"
+                android:text="Restaurant: "
+                android:id="@+id/restaurant"/>
+                <com.google.android.material.chip.ChipGroup
+                    android:id="@+id/chip_group"
+                    android:layout_width="wrap_content"
+                    app:singleSelection="true"
+                    android:layout_marginStart="8dp"
+                    android:layout_marginEnd="8dp"
+                    android:layout_marginTop="25dp"
+                    android:layout_marginBottom="25dp"
+                    android:layout_below="@id/restaurant"
+                    android:layout_centerHorizontal="true"
+                    android:layout_height="wrap_content">
+                    <com.google.android.material.chip.Chip
+                        style="@style/Widget.MaterialComponents.Chip.Choice"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Alinea"/>
+                    <com.google.android.material.chip.Chip
+                        style="@style/Widget.MaterialComponents.Chip.Choice"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Just"/>
+                    <com.google.android.material.chip.Chip
+                        style="@style/Widget.MaterialComponents.Chip.Choice"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Le Bernardin"/>
+                    <com.google.android.material.chip.Chip
+                        style="@style/Widget.MaterialComponents.Chip.Choice"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="The Melting Pot"/>
+                    <com.google.android.material.chip.Chip
+                        style="@style/Widget.MaterialComponents.Chip.Choice"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Little Moir's Food Shack"/>
+                    <com.google.android.material.chip.Chip
+                        style="@style/Widget.MaterialComponents.Chip.Choice"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Cafe Monarch"/>
+                    <com.google.android.material.chip.Chip
+                        style="@style/Widget.MaterialComponents.Chip.Choice"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="The Pluckemin Inn"/>
+                </com.google.android.material.chip.ChipGroup>
 
+
+            <View
+                android:id="@+id/divider2"
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_below="@id/chip_group"
+                android:background="@android:drawable/divider_horizontal_bright"/>
+
+            <com.google.android.material.textview.MaterialTextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/divider2"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="20dp"
+                android:fontFamily="@font/myriadpro"
+                android:textColor="@color/colorPrimary"
+                android:text="Price: "
+                android:id="@+id/price"/>
+            <com.google.android.material.chip.ChipGroup
+                android:id="@+id/chip_group2"
+                android:layout_width="wrap_content"
+                app:singleSelection="true"
+                android:layout_marginStart="8dp"
+                android:layout_marginEnd="8dp"
+                android:layout_marginTop="25dp"
+                android:layout_marginBottom="25dp"
+                android:layout_below="@id/price"
+                android:layout_centerHorizontal="true"
+                android:layout_height="wrap_content">
+                <com.google.android.material.chip.Chip
+                    style="@style/Widget.MaterialComponents.Chip.Choice"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="10€"/>
+                <com.google.android.material.chip.Chip
+                    style="@style/Widget.MaterialComponents.Chip.Choice"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="20€"/>
+                <com.google.android.material.chip.Chip
+                    style="@style/Widget.MaterialComponents.Chip.Choice"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="50€"/>
+                <com.google.android.material.chip.Chip
+                    style="@style/Widget.MaterialComponents.Chip.Choice"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="100€"/>
+                <com.google.android.material.chip.Chip
+                    style="@style/Widget.MaterialComponents.Chip.Choice"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="200€"/>
+                <com.google.android.material.chip.Chip
+                    style="@style/Widget.MaterialComponents.Chip.Choice"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="500€"/>
+                <com.google.android.material.chip.Chip
+                    style="@style/Widget.MaterialComponents.Chip.Choice"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="1000€"/>
+            </com.google.android.material.chip.ChipGroup>
+
+
+            <View
+                android:id="@+id/divider3"
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_below="@id/chip_group2"
+                android:background="@android:drawable/divider_horizontal_bright"/>
+
+            <com.google.android.material.textview.MaterialTextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/divider3"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="20dp"
+                android:fontFamily="@font/myriadpro"
+                android:textColor="@color/colorPrimary"
+                android:text="Time: "
+                android:id="@+id/time"/>
+
+            <com.google.android.material.chip.ChipGroup
+                android:id="@+id/chip_group3"
+                android:layout_width="wrap_content"
+                app:singleSelection="true"
+                android:layout_marginStart="8dp"
+                android:layout_marginEnd="8dp"
+                android:layout_marginTop="25dp"
+                android:layout_marginBottom="25dp"
+                android:layout_below="@id/time"
+                android:layout_centerHorizontal="true"
+                android:layout_height="wrap_content">
+                <com.google.android.material.chip.Chip
+                    style="@style/Widget.MaterialComponents.Chip.Choice"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="5 min"/>
+                <com.google.android.material.chip.Chip
+                    style="@style/Widget.MaterialComponents.Chip.Choice"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="10min"/>
+                <com.google.android.material.chip.Chip
+                    style="@style/Widget.MaterialComponents.Chip.Choice"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="15min"/>
+                <com.google.android.material.chip.Chip
+                    style="@style/Widget.MaterialComponents.Chip.Choice"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="20min"/>
+                <com.google.android.material.chip.Chip
+                    style="@style/Widget.MaterialComponents.Chip.Choice"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="30min"/>
+                <com.google.android.material.chip.Chip
+                    style="@style/Widget.MaterialComponents.Chip.Choice"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="45min"/>
+                <com.google.android.material.chip.Chip
+                    style="@style/Widget.MaterialComponents.Chip.Choice"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="1 hour"/>
+            </com.google.android.material.chip.ChipGroup>
+
+            <View
+                android:id="@+id/divider4"
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_below="@id/chip_group3"
+                android:background="@android:drawable/divider_horizontal_bright"/>
+
+
+            <com.google.android.material.textview.MaterialTextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/divider4"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="20dp"
+                android:fontFamily="@font/myriadpro"
+                android:textColor="@color/colorPrimary"
+                android:text="Other: "
+                android:id="@+id/other"/>
+
+            <com.google.android.material.chip.ChipGroup
+                android:id="@+id/chip_group4"
+                android:layout_width="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_marginEnd="8dp"
+                android:layout_marginTop="25dp"
+                android:layout_marginBottom="25dp"
+                android:layout_below="@id/other"
+                android:layout_centerHorizontal="true"
+                android:layout_height="wrap_content">
+                <com.google.android.material.chip.Chip
+                    style="@style/Widget.MaterialComponents.Chip.Filter"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Random"/>
+                <com.google.android.material.chip.Chip
+                    style="@style/Widget.MaterialComponents.Chip.Filter"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Random"/>
+                <com.google.android.material.chip.Chip
+                    style="@style/Widget.MaterialComponents.Chip.Filter"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Random"/>
+                <com.google.android.material.chip.Chip
+                    style="@style/Widget.MaterialComponents.Chip.Filter"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Random"/>
+                <com.google.android.material.chip.Chip
+                    style="@style/Widget.MaterialComponents.Chip.Filter"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Random"/>
+
+            </com.google.android.material.chip.ChipGroup>
+
+            <View
+                android:id="@+id/divider5"
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_below="@id/chip_group4"
+                android:background="@android:drawable/divider_horizontal_bright"/>
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/order"
+                style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/divider5"
+                app:cornerRadius="0dp"
+                android:text="Order"/>
+
+
+        </RelativeLayout>
         </com.google.android.material.card.MaterialCardView>
     </androidx.constraintlayout.widget.ConstraintLayout>
 </ScrollView>

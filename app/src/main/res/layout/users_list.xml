@@ -18,10 +18,19 @@
         <androidx.cardview.widget.CardView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            app:cardCornerRadius="38dp">
+            app:cardCornerRadius="40dp">
+            <androidx.cardview.widget.CardView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+
+            </androidx.cardview.widget.CardView>
+            <View
+                android:layout_width="80dp"
+                android:layout_height="80dp"
+                android:background="@color/colorWhite"/>
             <ImageView
                 android:layout_width="75dp"
+                android:layout_gravity="center"
                 android:background="@drawable/img_lights"
                 android:layout_height="75dp"/>
         </androidx.cardview.widget.CardView>
