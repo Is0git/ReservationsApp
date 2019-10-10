@@ -17,7 +17,7 @@
             android:layout_marginBottom="50dp"
             android:theme="@style/MaterialStyle"
             app:cardElevation="10dp"
-
+            app:layout_anchorGravity="bottom"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"

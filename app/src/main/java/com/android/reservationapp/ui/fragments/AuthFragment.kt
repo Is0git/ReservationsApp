@@ -24,7 +24,7 @@ class AuthFragment : Fragment(), FragmentsListener{
         savedInstanceState: Bundle?
     ): View? {
         loginBinding = AuthFragmentBinding.inflate(inflater, container, false)
-        fragmentViewPager = FragmentViewPager(fragmentManager!!, FragmentPagerAdapter.BEHAVIOR_RESUME_ONLY_CURRENT_FRAGMENT)
+        fragmentViewPager = FragmentViewPager(childFragmentManager, FragmentPagerAdapter.BEHAVIOR_RESUME_ONLY_CURRENT_FRAGMENT)
         loginBinding.tabLayout.setupWithViewPager(loginBinding.viewPager)
         loginBinding.viewPager.adapter = fragmentViewPager
         (activity as MainActivity).fragmentsListener = this

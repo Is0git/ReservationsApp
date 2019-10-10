@@ -9,8 +9,15 @@ class TConverter {
             val currentTime = System.currentTimeMillis()
             val timeDiff = currentTime - time
             val hours  = timeDiff/3600000
-            val minutes = timeDiff / 60000 %60
-            return "$hours hours $minutes minutes ago"
+            if(hours < 23) {
+                val minutes = timeDiff / 60000 % 60
+                return "$hours hours $minutes minutes ago"
+            }
+            else {
+                val days = timeDiff/86400000
+                val hours = hours % 24
+                return "$days days $hours hours ago"
+            }
         }
     }
 

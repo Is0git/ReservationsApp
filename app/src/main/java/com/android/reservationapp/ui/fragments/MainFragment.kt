@@ -36,7 +36,9 @@ class MainFragment : Fragment(){
         binding = MainFragmentBinding.inflate(inflater, container, false)
         binding.userList.adapter = madapter
         binding.button.setOnClickListener { auth.signOut()
-        nav.navigate(R.id.loginFragment)}
+        nav.navigate(R.id.action_mainFragment_to_loginFragment)}
+
+        binding.calendar.date = 1570591160047
         return binding.root
     }
 

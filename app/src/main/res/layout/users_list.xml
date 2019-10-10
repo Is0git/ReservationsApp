@@ -22,6 +22,7 @@
             app:cardCornerRadius="38dp">
             <ImageView
                 android:layout_width="75dp"
+                android:background="@drawable/img_lights"
                 android:layout_height="75dp"/>
         </androidx.cardview.widget.CardView>
         <TextView
@@ -29,13 +30,19 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
+            android:textSize="12sp"
+            android:textColor="@color/colorWhite"
+            android:alpha="0.8"
+            android:fontFamily="@font/myriadpro"
             android:layout_marginTop="10dp"
-            android:text="@{data.email}"/>
+            android:text="@{data.email.toUpperCase()}"/>
         <TextView
             android:id="@+id/user_visit"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:textColor="@color/colorWhite"
             android:layout_gravity="center"
+            android:alpha="0.5"
             android:layout_marginTop="10dp"
             android:text="@{TConverter.convert(data.seen_recently)}"/>
 

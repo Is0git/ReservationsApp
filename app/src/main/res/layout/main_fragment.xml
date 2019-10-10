@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
+
     xmlns:app="http://schemas.android.com/apk/res-auto">
 <ScrollView
     android:layout_width="match_parent"
@@ -7,37 +8,48 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:background="@drawable/gradient"
+        android:paddingBottom="15dp"
         android:orientation="vertical">
 
-        <androidx.coordinatorlayout.widget.CoordinatorLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_marginBottom="16dp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent">
+<!--        <androidx.coordinatorlayout.widget.CoordinatorLayout-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="match_parent"-->
+<!--            android:layout_marginBottom="16dp"-->
+<!--            app:layout_constraintBottom_toBottomOf="parent"-->
+<!--            app:layout_constraintEnd_toEndOf="parent">-->
 
-            <com.google.android.material.floatingactionbutton.FloatingActionButton
-                android:id="@+id/floatingActionButton"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginEnd="16dp"
-                app:srcCompat="@drawable/ic_add_black_24dp" />
-        </androidx.coordinatorlayout.widget.CoordinatorLayout>
+<!--            <com.google.android.material.floatingactionbutton.FloatingActionButton-->
+<!--                android:id="@+id/floatingActionButton"-->
+<!--                android:layout_width="wrap_content"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:layout_marginEnd="16dp"-->
+<!--                app:srcCompat="@drawable/ic_add_black_24dp" />-->
+<!--        </androidx.coordinatorlayout.widget.CoordinatorLayout>-->
 
         <com.google.android.material.card.MaterialCardView
+            style="@style/Widget.MaterialComponents.CardView"
+            android:theme="@style/MaterialStyle"
             android:id="@+id/recent_cardview"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginLeft="@dimen/mtrl_card_spacing"
             android:layout_marginTop="@dimen/mtrl_card_spacing"
             android:layout_marginRight="@dimen/mtrl_card_spacing"
+            app:cardUseCompatPadding="true"
+            app:cardCornerRadius="10dp"
             android:minHeight="200dp"
+            app:cardElevation="8dp"
             app:layout_constraintTop_toTopOf="parent">
 
-            <LinearLayout
+            <RelativeLayout
                 android:layout_width="match_parent"
-                android:orientation="vertical"
+                android:background="@color/colorPrimary"
                 android:layout_height="match_parent">
+                <View
+                    android:layout_width="match_parent"
+                    android:background="@drawable/gradient3"
+                    android:layout_height="200dp"/>
                 <Button
                     android:id="@+id/button"
                     android:layout_width="match_parent"
@@ -45,52 +57,72 @@
                     android:visibility="visible"
                     android:text="LOGOUT"
                     android:textColor="@color/colorWhite"/>
+
                 <androidx.recyclerview.widget.RecyclerView
                     android:layout_width="match_parent"
                     android:layout_height="150dp"
                     android:layout_gravity="bottom"
+                    android:layout_below="@id/button"
                     app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
                     android:orientation="horizontal"
                     android:id="@+id/user_list"/>
-            </LinearLayout>
+
+            </RelativeLayout>
 
 
         </com.google.android.material.card.MaterialCardView>
 
 
-        <com.google.android.material.card.MaterialCardView
-            android:id="@+id/calendar_cardView"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="@dimen/mtrl_card_spacing"
-            android:layout_marginTop="@dimen/mtrl_card_spacing"
-            android:layout_marginRight="@dimen/mtrl_card_spacing"
-            android:minHeight="200dp"
-            app:layout_constraintTop_toBottomOf="@id/recent_cardview">
 
-            <CalendarView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center" />
-        </com.google.android.material.card.MaterialCardView>
 
         <com.google.android.material.card.MaterialCardView
             android:id="@+id/users_cardView"
             android:layout_width="match_parent"
+            app:cardElevation="8dp"
             android:layout_height="wrap_content"
             android:layout_marginLeft="@dimen/mtrl_card_spacing"
-            android:layout_marginTop="@dimen/mtrl_card_spacing"
+            app:cardPreventCornerOverlap="true"
             android:layout_marginRight="@dimen/mtrl_card_spacing"
-            android:minHeight="200dp"
+            android:minHeight="300dp"
+            app:cardBackgroundColor="@color/colorPrimaryVariant"
             app:layout_constraintTop_toBottomOf="@id/calendar_cardView">
 
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="300dp"
+                android:background="@drawable/gradient4" />
+
+
+
+        </com.google.android.material.card.MaterialCardView>
+        <com.google.android.material.card.MaterialCardView
+            android:id="@+id/calendar_cardView"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginTop="15dp"
+            app:cardElevation="1dp"
+            android:layout_marginLeft="@dimen/mtrl_card_spacing"
+            android:layout_marginRight="@dimen/mtrl_card_spacing"
+            android:minHeight="200dp"
+            app:layout_constraintTop_toBottomOf="@id/recent_cardview">
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="336dp"
+                android:background="@drawable/gradient2"/>
+
             <CalendarView
+                android:id="@+id/calendar"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center" />
 
-        </com.google.android.material.card.MaterialCardView>
+            <com.google.android.material.button.MaterialButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="add"/>
 
+        </com.google.android.material.card.MaterialCardView>
     </androidx.constraintlayout.widget.ConstraintLayout>
 </ScrollView>
 </layout>
