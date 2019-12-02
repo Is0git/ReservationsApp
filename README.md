@@ -23,10 +23,6 @@
 
 
 <li>
-<p><strong>Glide image loader</strong></p>
-</li>
-
-<li>
 <p><strong>For testing: JUNIT, Mockito, Espresso, Hamcrest</strong></p>
 </li>
 
