@@ -3,7 +3,7 @@
 
 
 
-<p>FirebaseAuth and FireStore reservations app with material design. App consists of login and main screen user can make reservations based on different features, view reservations in real time also you can see recent logged in users. FirebaseAuth allows to register with email confirmation. Users are remembered until they logout. App is not supposed to be fully functional but instead it's just implementation of firebase features</p>
+<p>FirebaseAuth and FireStore reservations app with material design. App consists of login and main screen. User can make reservations based on different features, view reservations in real time also can see recent logged in users. FirebaseAuth allows to register with email confirmation. Users are remembered until they logout. App is not supposed to be fully functional but instead  just to be implementation of firebase features</p>
 
 
 
