@@ -14,17 +14,18 @@
 </li>
 
 <li>
-<p><strong>Jetpack components(Room, Navigation component, ViewModel, LiveData, Lifecycle, Data binding)</strong></p>
+<p><strong>Jetpack components(Navigation component, ViewModel, LiveData, Lifecycle, Data binding)</strong></p>
 </li>
+
+<li>
+<p><strong>Firestore, Firebase Auth, Firebase in app messaging</strong></p>
+</li>
+
 
 <li>
 <p><strong>Coroutines + extensions</strong></p>
 </li>
 
-
-<li>
-<p><strong>For testing: JUNIT, Mockito, Espresso, Hamcrest</strong></p>
-</li>
 
 <p><strong>And more..</strong></p>
 
