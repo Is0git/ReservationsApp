@@ -41,7 +41,10 @@ class LaunchFragment : Fragment() {
                 collection.whereEqualTo(FirebaseConsts.email, "${mauth.currentUser?.email}").get()
                     .addOnSuccessListener {
                         documentReference = collection.document(it.documents[0].id)
-                        documentReference.update(FirebaseConsts.seen_recently, System.currentTimeMillis())
+                        documentReference.update(
+                            FirebaseConsts.seen_recently,
+                            System.currentTimeMillis()
+                        )
                             .continueWith { nav.navigate(R.id.action_launchFragment_to_mainFragment) }
 
                     }

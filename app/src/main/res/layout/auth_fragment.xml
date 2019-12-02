@@ -27,18 +27,19 @@
                 android:layout_width="wrap_content"
                 android:orientation="vertical"
                 android:layout_height="wrap_content">
-            <com.google.android.material.tabs.TabLayout
-                android:id="@+id/tab_layout"
 
-                android:layout_width="match_parent"
-                android:layout_height="48dp"/>
+                <com.google.android.material.tabs.TabLayout
+                    android:id="@+id/tab_layout"
 
-            <androidx.viewpager.widget.ViewPager
-                android:layout_marginTop="1dp"
-                android:background="@color/colorWhite"
-                android:id="@+id/view_pager"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"/>
+                    android:layout_width="match_parent"
+                    android:layout_height="48dp" />
+
+                <androidx.viewpager.widget.ViewPager
+                    android:layout_marginTop="1dp"
+                    android:background="@color/colorWhite"
+                    android:id="@+id/view_pager"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent" />
             </LinearLayout>
 
         </com.google.android.material.card.MaterialCardView>

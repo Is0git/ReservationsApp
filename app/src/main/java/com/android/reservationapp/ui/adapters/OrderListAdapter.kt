@@ -9,7 +9,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.android.reservationapp.data.Order
 import com.android.reservationapp.databinding.OrderListBinding
 
-class OrderListAdapter() :
+class OrderListAdapter :
     ListAdapter<Order, OrderListAdapter.MyViewHolder>(orderCallback) {
 
 
@@ -17,7 +17,8 @@ class OrderListAdapter() :
         parent: ViewGroup,
         viewType: Int
     ): OrderListAdapter.MyViewHolder {
-        val binding:OrderListBinding = OrderListBinding.inflate(LayoutInflater.from(parent.context), parent, false)
+        val binding: OrderListBinding =
+            OrderListBinding.inflate(LayoutInflater.from(parent.context), parent, false)
         return MyViewHolder(binding)
     }
 
@@ -28,11 +29,12 @@ class OrderListAdapter() :
     }
 
 
-    class MyViewHolder(val binding:OrderListBinding) : RecyclerView.ViewHolder(binding.root)
+    class MyViewHolder(val binding: OrderListBinding) : RecyclerView.ViewHolder(binding.root)
 }
 
-val orderCallback:DiffUtil.ItemCallback<Order> = object : DiffUtil.ItemCallback<Order>() {
-    override fun areItemsTheSame(oldItem: Order, newItem: Order): Boolean = oldItem.email.equals(newItem.email)
+val orderCallback: DiffUtil.ItemCallback<Order> = object : DiffUtil.ItemCallback<Order>() {
+    override fun areItemsTheSame(oldItem: Order, newItem: Order): Boolean =
+        oldItem.email.equals(newItem.email)
 
     override fun areContentsTheSame(oldItem: Order, newItem: Order): Boolean = oldItem == newItem
 }

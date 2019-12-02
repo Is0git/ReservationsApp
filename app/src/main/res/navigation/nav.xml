@@ -18,7 +18,7 @@
     <fragment
         android:id="@+id/launchFragment"
         android:name="com.android.reservationapp.ui.fragments.LaunchFragment"
-        android:label="LaunchFragment" >
+        android:label="LaunchFragment">
         <action
             android:id="@+id/action_launchFragment_to_loginFragment"
             app:destination="@id/loginFragment"
@@ -35,7 +35,7 @@
     <fragment
         android:id="@+id/mainFragment"
         android:name="com.android.reservationapp.ui.fragments.MainFragment"
-        android:label="MainFragment" >
+        android:label="MainFragment">
         <action
             android:id="@+id/action_mainFragment_to_loginFragment"
             app:destination="@id/loginFragment"

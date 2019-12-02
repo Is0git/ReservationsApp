@@ -15,16 +15,19 @@ import com.android.reservationapp.databinding.LoginFragmentBinding
 import com.android.reservationapp.ui.adapters.FragmentViewPager
 import kotlinx.android.synthetic.main.activity_main.*
 
-class AuthFragment : Fragment(), FragmentsListener{
+class AuthFragment : Fragment(), FragmentsListener {
     lateinit var loginBinding: AuthFragmentBinding
-    lateinit var fragmentViewPager:FragmentViewPager
+    lateinit var fragmentViewPager: FragmentViewPager
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
         loginBinding = AuthFragmentBinding.inflate(inflater, container, false)
-        fragmentViewPager = FragmentViewPager(childFragmentManager, FragmentPagerAdapter.BEHAVIOR_RESUME_ONLY_CURRENT_FRAGMENT)
+        fragmentViewPager = FragmentViewPager(
+            childFragmentManager,
+            FragmentPagerAdapter.BEHAVIOR_RESUME_ONLY_CURRENT_FRAGMENT
+        )
         loginBinding.tabLayout.setupWithViewPager(loginBinding.viewPager)
         loginBinding.viewPager.adapter = fragmentViewPager
         (activity as MainActivity).fragmentsListener = this

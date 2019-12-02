@@ -106,10 +106,11 @@ class MainFragment : Fragment() {
                 madapter.submitList(b)
             }
 
-        orderListener = orders.limit(20).orderBy("ordered_time", Query.Direction.DESCENDING).addSnapshotListener { value, _ ->
-            val result = value?.toObjects(Order::class.java)
-            oadapter.submitList(result)
-        }
+        orderListener = orders.limit(20).orderBy("ordered_time", Query.Direction.DESCENDING)
+            .addSnapshotListener { value, _ ->
+                val result = value?.toObjects(Order::class.java)
+                oadapter.submitList(result)
+            }
 
     }
 

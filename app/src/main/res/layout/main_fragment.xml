@@ -88,7 +88,7 @@
                     android:layout_marginTop="25dp"
                     android:layout_marginStart="25dp"
                     android:textSize="35sp"
-                    android:fontFamily="@font/myriadpro"/>
+                    android:fontFamily="@font/myriadpro" />
 
                 <androidx.recyclerview.widget.RecyclerView
                     android:id="@+id/orderList"

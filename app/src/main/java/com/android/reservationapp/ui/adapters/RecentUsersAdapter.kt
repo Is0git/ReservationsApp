@@ -30,8 +30,9 @@ class RecentUsersAdapter :
     }
 }
 
-val callback: DiffUtil.ItemCallback<Users>  = object : DiffUtil.ItemCallback<Users>() {
-    override fun areItemsTheSame(oldItem: Users, newItem: Users): Boolean = oldItem.email == newItem.email
+val callback: DiffUtil.ItemCallback<Users> = object : DiffUtil.ItemCallback<Users>() {
+    override fun areItemsTheSame(oldItem: Users, newItem: Users): Boolean =
+        oldItem.email == newItem.email
 
     override fun areContentsTheSame(oldItem: Users, newItem: Users): Boolean = oldItem == newItem
 }
